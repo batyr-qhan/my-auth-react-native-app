@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "AIzaSyAAzowwB39RDqxqfTDR3N0mhl3xPQvTmZQ";
+import { API_KEY } from "@env";
 
 export async function createUser(email, password) {
   const response = await axios.post(
@@ -12,4 +12,5 @@ export async function createUser(email, password) {
       returnSecureToken: true,
     }
   );
+  console.log(response);
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 
-import FlatButton from "../ui/FlatButton";
+import FlatButton from "../ui/SecondaryButton";
 import AuthForm from "./AuthForm";
 import { Colors } from "../../constants/styles";
 import { useNavigation } from "@react-navigation/native";
@@ -20,9 +20,9 @@ function AuthContent({ isLogin, onAuthenticate }) {
     // Todo
 
     if (isLogin) {
-      navigation.replace("Signup");
+      navigation.navigate("Signup");
     } else {
-      navigation.replace("Login");
+      navigation.navigate("Login");
     }
   }
 
