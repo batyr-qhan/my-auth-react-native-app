@@ -6,7 +6,6 @@ import Input from "./Input";
 
 function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredConfirmEmail, setEnteredConfirmEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -14,7 +13,6 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
 
   const {
     email: emailIsInvalid,
-    confirmEmail: emailsDontMatch,
     password: passwordIsInvalid,
     confirmPassword: passwordsDontMatch,
   } = credentialsInvalid;
@@ -23,9 +21,6 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
     switch (inputType) {
       case "email":
         setEnteredEmail(enteredValue);
-        break;
-      case "confirmEmail":
-        setEnteredConfirmEmail(enteredValue);
         break;
       case "password":
         setEnteredPassword(enteredValue);
@@ -45,7 +40,6 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
   function submitHandler() {
     onSubmit({
       email: enteredEmail,
-      confirmEmail: enteredConfirmEmail,
       password: enteredPassword,
       confirmPassword: enteredConfirmPassword,
     });
@@ -75,15 +69,7 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
           keyboardType="email-address"
           isInvalid={emailIsInvalid}
         />
-        {/* {!isLogin && (
-          <Input
-            label="Confirm Email Address"
-            onUpdateValue={updateInputValueHandler.bind(this, "confirmEmail")}
-            value={enteredConfirmEmail}
-            keyboardType="email-address"
-            isInvalid={emailsDontMatch}
-          />
-        )} */}
+
         <Input
           label="Password"
           onUpdateValue={updateInputValueHandler.bind(this, "password")}
